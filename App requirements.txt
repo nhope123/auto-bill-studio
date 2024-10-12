@@ -14,9 +14,5 @@ Requirements:
 5. backend server- for database modification
 6. Database: schemas, insert, update, delete,
 7. Prices are in multiple currencies
-8.  
-
-
-git remote add origin https://github.com/nhope123/auto-bill-studio.git
-git branch -M main
-git push -u origin main
+8. Should be able to search for invoices by vin#, invoice, etc. add search to dashboard.
+9. Theme for light and dark modes
