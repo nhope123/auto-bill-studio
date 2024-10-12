@@ -1,0 +1,22 @@
+Pdf extraction app
+
+Requirements:
+1. Must be a desktop app
+2. On initial opening a graphical display
+3. Authentication
+	- frontend: Login screen
+	- backend: database transaction, validation
+4. Screens
+	- Dashboard/Home: show a grid with all the with each auction invoice info or list
+	- import screen: add files by drag and drop and by button click, the files are shown at the top and a submit button to extract the information and add it to the database. Clicking on the imported doc will display the pdf doc in a modal
+	- Invoice creation screen: from the home screen grid, clicking on an invoice number will open the creation screen. on the screen you can customize the area of the data display and allow for printing, and saving as pdf, doc
+	- about screen: will give information on the app( author, version, etc.)
+5. backend server- for database modification
+6. Database: schemas, insert, update, delete,
+7. Prices are in multiple currencies
+8.  
+
+
+git remote add origin https://github.com/nhope123/auto-bill-studio.git
+git branch -M main
+git push -u origin main
