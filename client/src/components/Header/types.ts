@@ -5,10 +5,11 @@ export type ToggleAction =
 | { action: 'close'; event?: undefined };
 
 export interface AppMenuProps {
-  handleClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  handleClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface MobileMenuProps {
   children: React.ReactNode;
+  open: boolean;
   onClose: () => void;
 } 

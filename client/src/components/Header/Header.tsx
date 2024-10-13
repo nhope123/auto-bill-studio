@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { SxProps, Theme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
-import { MouseEvent } from 'react';
+import { MouseEvent, useState } from 'react';
 import AppMenu from './AppMenu';
 import Branding from './Branding';
 import MobileMenu from './MobileMenu';
@@ -21,20 +21,20 @@ const rightAppBarSx: SxProps<Theme> = {
   flexShrink: 1,
 };
 
-const ResponsiveAppBar = () => {
+const Header = () => {
+  const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
+
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={toolbarSx}>
           {/* Mobile Menu */}
-          <MobileMenu onClose={() => ({})}>
-            <AppMenu
-              handleClick={function (
-                event: MouseEvent<HTMLButtonElement>
-              ): void {
-                throw new Error('Function not implemented.');
-              }}
-            />
+          <MobileMenu 
+            onClose={() => setOpenMobileMenu(false)} 
+            open={openMobileMenu}
+          >
+            <AppMenu handleClick={() => setOpenMobileMenu(false)} />
           </MobileMenu>
 
           {/* Logo set up */}
@@ -65,4 +65,4 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+export default Header;
