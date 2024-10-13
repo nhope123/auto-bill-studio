@@ -12,4 +12,5 @@ export interface MobileMenuProps {
   children: React.ReactNode;
   open: boolean;
   onClose: () => void;
+  handleClick: (e: MouseEvent<HTMLButtonElement>) => void;
 } 

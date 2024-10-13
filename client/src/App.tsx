@@ -1,6 +1,8 @@
 import { Grid2, SxProps, Theme } from '@mui/material';
 import { FC } from 'react';
 import Header from './components/Header/Header';
+import useCreatedRoutes from './useCreatedRoutes';
+import { RouterProvider } from 'react-router-dom';
 
 const rootSx: SxProps<Theme> = {
   flexDirection: 'column',
@@ -15,13 +17,18 @@ const mainSx: SxProps<Theme> = {
 };
 
 const App: FC = () => {
+  const routes = useCreatedRoutes();
+
   return (
-    <Grid2 container sx={rootSx}>
-      <Header />
-      <Grid2  sx={mainSx}>
-        <div>Content</div>
+    <>
+      <RouterProvider router={routes} />
+      <Grid2 container sx={rootSx}>
+        <Header />
+        <Grid2  sx={mainSx}>
+          <div>Content</div>
+        </Grid2>
       </Grid2>
-    </Grid2>
+    </>
   );
 };
 

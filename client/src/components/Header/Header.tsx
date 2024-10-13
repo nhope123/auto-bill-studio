@@ -24,14 +24,14 @@ const rightAppBarSx: SxProps<Theme> = {
 const Header = () => {
   const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
 
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={toolbarSx}>
           {/* Mobile Menu */}
-          <MobileMenu 
-            onClose={() => setOpenMobileMenu(false)} 
+          <MobileMenu
+            handleClick={() => setOpenMobileMenu(true)}
+            onClose={() => setOpenMobileMenu(false)}
             open={openMobileMenu}
           >
             <AppMenu handleClick={() => setOpenMobileMenu(false)} />
@@ -49,13 +49,7 @@ const Header = () => {
                 justifyContent: 'flex-end',
               }}
             >
-              <AppMenu
-                handleClick={function (
-                  event: MouseEvent<HTMLButtonElement>
-                ): void {
-                  throw new Error('Function not implemented.');
-                }}
-              />
+              <AppMenu />
             </Box>
 
             <UserMenu />
