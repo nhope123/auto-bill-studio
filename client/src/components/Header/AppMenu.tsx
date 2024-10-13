@@ -19,7 +19,6 @@ const AppMenu: FC<AppMenuProps> = (props: AppMenuProps) => {
 
   const navigate = useNavigate();
   const { pathname} = useLocation();
-  // const match = useMatch
 
   const _handleBtnClick = useCallback(
     (e: MouseEvent<HTMLButtonElement>, path: string) => {
@@ -31,10 +30,9 @@ const AppMenu: FC<AppMenuProps> = (props: AppMenuProps) => {
 
   const isActiveRoute = useCallback((page: string) => {
     const match = matchPath(pathname, `/${page.toLowerCase()}`);
-    console.log('matchPath', matchPath);
     
     return match ? true : false;
-  }, []);
+  }, [pathname]);
 
   return (
     <>
@@ -46,6 +44,8 @@ const AppMenu: FC<AppMenuProps> = (props: AppMenuProps) => {
           sx={{ 
             ...buttonSx,
             backgroundColor: isActiveRoute(page) ? 'primary.main' : 'inherit',
+            border: isActiveRoute(page) ? (theme) => `1px solid ${theme.palette.primary.contrastText}` : 'none',
+            color: isActiveRoute(page) ? 'primary.contrastText' : 'text.primary',
           }}
           
         >
