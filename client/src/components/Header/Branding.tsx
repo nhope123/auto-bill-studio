@@ -1,29 +1,33 @@
 import { CarRepairRounded } from '@mui/icons-material';
 import { Box, SxProps, Theme, Typography } from '@mui/material';
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const rootSx: SxProps<Theme> = {
-  display: 'flex',
   alignItems: 'center',
   columnGap: 1,
+  display: 'flex',
 };
 
 const APP_NAME = 'AutoBill Studio';
+const HOME_PATH = '/dashboard';
 
 const Branding: FC = () => {
-  
+  const navigate = useNavigate();
+
+  const _handleClick = useCallback(() => navigate(HOME_PATH), []);
+
   return (
     <Box sx={rootSx}>
-      <CarRepairRounded  />
-        <Typography
-          variant="h6"
-          noWrap
-          component="a"
-          href="/" // add href to the dashboard
-          sx={{ color: 'inherit', textDecoration: 'none' }}
-        >
-          {APP_NAME}
-        </Typography>
+      <CarRepairRounded />
+      <Typography
+        noWrap
+        onClick={_handleClick}
+        sx={{ color: 'inherit', textDecoration: 'none' }}
+        variant="h6"
+      >
+        {APP_NAME}
+      </Typography>
     </Box>
   );
 };

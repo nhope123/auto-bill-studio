@@ -1,13 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import DashBoard from "./pages/Dashboard/DashBoard";
 import Import from "./pages/Import/Import";
+import Invoice from "./pages/Invoice/Invoice";
 
 const useCreatedRoutes = () => { 
   
-  return createBrowserRouter([
+  return useRoutes([
     {
-      path: '/',
-      element: <DashBoard />
+      path: '/dashboard',
+      element: <DashBoard />,
     },
     {
       path: '/import',
@@ -15,8 +16,8 @@ const useCreatedRoutes = () => {
     },
     {
       path: '/invoice',
+      element: <Invoice />
     },
-
   ]);
 };
 
